@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block title%} alta {%endblock%}
+
+{%block contenido%} 
+	{% if error%}
+		<h1>{{error}}</h1>
+		<a href="{%url 'index'%}">Volver</a>
+	{%else %}
+		<form method="post" accept-charset="utf-8">
+			{% csrf_token%}
+			{{form.as_p}}
+			<input type="submit" name="Guardar">
+			<a href="{%url 'index'%}">Volver</a>
+		</form>
+	{% endif %}
+{%endblock%}

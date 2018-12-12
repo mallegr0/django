@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title%} Socio ABMC - Año 2019 {% endblock%}
+
+{% block contenido%}
+	<table>
+	 	<thead>
+	 		<tr>
+	 			<th>#</th>
+	 			<th>Nombre</th>
+	 			<th>Apelldo</th>
+	 			<th>DNI</th>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+			{% for s in socios%}
+				<tr>
+					<td>{{s.nroSoc}}</td>
+					<td>{{s.nombre}}</td>
+					<td>{{s.apellido}}</td>
+					<td>{{s.dni}}</td>
+				</tr>
+				{% empty%}
+					<tr><td>No hay registros</td></tr>
+				{%endfor%}
+			</tr> 		
+	 	</tbody>
+	 </table> 
+	 <a href="{%url 'alta'%}">Alta</a>
+
+	
+
+{% endblock%}
